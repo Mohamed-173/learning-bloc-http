@@ -27,15 +27,15 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           password: event.password,
           rePassword: event.rePassword,
         );
-        log(token);
-        authBloc.add(LoggedIn(token: token));
-        emit(RegisterInitial());
+        log(token.toString());
+        // authBloc.add(LoggedIn(token: token.toString()));
+        emit(RegisterSuccessfuly());
       } catch (e) {
         if (e is DioException) {
-          if (e.response!.data != null) {
-            emit(RegisterFailed(e.response!.data.toString()));
+          if (e.response != null) {
+            emit(RegisterFailed(e.response!.toString()));
           } else {
-            emit(RegisterFailed(e.response.toString()));
+            emit(RegisterFailed(e.toString()));
           }
         } else {
           emit(RegisterFailed(e.toString()));

@@ -14,6 +14,7 @@ class UserRepository {
   final apiKeyCheck3 = "/auth/registered";
   final apiKeyRegister = "/api/register";
   final apiKeyRegister3 = "/auth/register/try";
+  final apiKeyRegister4 = "/users/";
 
   // final ApiBase apiBase = ApiBase();
   final FlutterSecureStorage storage = const FlutterSecureStorage();
@@ -84,12 +85,11 @@ class UserRepository {
     required String name,
   }) async {
     final response =
-        await _dio.post(AppConst.baseApi3 + apiKeyRegister3, data: {
+        await _dio.post(AppConst.baseApi4 + apiKeyRegister4, data: {
       "name": name,
-      "phone": phonNo,
       "email": email,
       "password": password,
-      "password_confirm": rePassword,
+      "avatar": "https://api.lorem.space/image/face?w=640&h=480&r=867"
     });
 
     return response;

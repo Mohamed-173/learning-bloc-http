@@ -179,10 +179,10 @@ class _RegisterFormState extends State<RegisterForm> {
                           builder: (context, timerState) {
                             int i = 0;
                             //! no need to close manualy because wee need it
-                            // if (state is TimerRunComplete) {
-                            //   BlocProvider.of<TimerBloc>(context).close();
-                            // }
+
                             log("$i  ${timerState.runtimeType}");
+                            log("$i  ${registerState.runtimeType}");
+
                             i++;
                             return CustomButton(
                               onPress: () async {
